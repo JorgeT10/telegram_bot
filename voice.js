@@ -9,8 +9,7 @@ const credentials = JSON.parse(fs.readFileSync(keyFilename));
 // Create Speech-to-Text client with credentials
 const speechClient = new speech.SpeechClient({ credentials });
 
-function handleVoiceMessage(bot, msg) {
-  
+function handleVoiceMessage(bot, msg) {  
 
   const chatId = msg.chat.id;
   const voice = msg.voice;
@@ -23,9 +22,7 @@ function handleVoiceMessage(bot, msg) {
     .downloadFile(voice.file_id, __dirname)
     .then((filePath) => {
       // Transcribe voice file
-      const audioBytes = fs.readFileSync(filePath);
-
-      console.log(audioBytes);
+      const audioBytes = fs.readFileSync(filePath);      
 
       const audioConfig = {
         encoding: "OGG_OPUS",
@@ -75,4 +72,4 @@ function handleVoiceMessage(bot, msg) {
     });
 }
 
-module.exports = { handleAudio: handleVoiceMessage };
+module.exports = { handleVoice: handleVoiceMessage };

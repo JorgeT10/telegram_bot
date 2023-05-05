@@ -1,5 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
-const { handleAudio } = require('./speech');
+const { handleVoice: handleVoice } = require('./voice');
 
 function startBot(token, webhookUrl) {
 
@@ -13,7 +13,7 @@ function startBot(token, webhookUrl) {
     console.log('message received type: ');
     // Handle audio messages
     if (msg.voice) {
-      handleAudio(bot, msg);
+      handleVoice(bot, msg);
       return;
     }
 
