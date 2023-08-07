@@ -1,2 +1,2 @@
 # telegram_bot
-telegram bot
+telegram bot to transform audio to text. 
